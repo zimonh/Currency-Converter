@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<title>bitcoin</title>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	
+	
+	<style>
+		body{"Lucida Console", Monaco, monospace; font-size:40px; }
+		p{
+			display: inline-block;
+			margin: 0 10px;
+		}
+		input{"Lucida Console", Monaco, monospace; font-size:40px; 
+			background-color: unset;
+			border: unset;
+			width: 220px;
+		}
+	</style>
+	
+<script>
+
+
+
+	function moneyConvert(){
+		date = $('#date').val();
+		var endpoint = "https://api.coindesk.com/v1/bpi/historical/close.json?start="+date+"&end="+date+"";
+		fetch(endpoint) 
+			.then(response => response.json())
+			.then(data => {
+			
+				convert = "$ " + Math.round((0.75362609 * parseInt(JSON.stringify(data.bpi).substring(14).slice(0, -1)))* 100) / 100 ;
+				$('#bitcoin').html(convert);
+				
+			});
+}
+	function moneyConvert2(){
+		
+		date2 = $('#date2').val();
+		var endpoint = "https://api.coindesk.com/v1/bpi/historical/close.json?start="+date2+"&end="+date2+"";
+		fetch(endpoint) 
+			.then(response => response.json())
+			.then(data => {
+			
+				convert2 = "$ " + Math.round((0.75362609 * parseInt(JSON.stringify(data.bpi).substring(14).slice(0, -1)))* 100) / 100;
+				$('#bitcoin2').html(convert2);
+				
+			});  
+
+}		
+	function moneyConvert3(){	
+		
+		date3 = $('#date3').val();
+		var endpoint = "https://api.coindesk.com/v1/bpi/historical/close.json?start="+date3+"&end="+date3+"";
+		fetch(endpoint) 
+			.then(response => response.json())
+			.then(data => {
+			
+				convert3 = "$ " + Math.round((0.75362609 * parseInt(JSON.stringify(data.bpi).substring(14).slice(0, -1)))* 100) / 100;
+				$('#bitcoin3').html(convert3);
+				
+			});  
+}
+	function moneyConvert4(){	
+		
+		
+		date4 = $('#date4').val();
+		var endpoint = "https://api.coindesk.com/v1/bpi/historical/close.json?start="+date4+"&end="+date4+"";
+		fetch(endpoint) 
+			.then(response => response.json())
+			.then(data => {
+			
+				convert4 = "$ " + Math.round((0.75362609 * parseInt(JSON.stringify(data.bpi).substring(14).slice(0, -1)))* 100) / 100;
+				$('#bitcoin4').html(convert4);
+				
+			});  
+}
+	function moneyConvert5(){	
+		
+		
+		date5 = $('#date5').val();
+		var endpoint = "https://api.coindesk.com/v1/bpi/historical/close.json?start="+date5+"&end="+date5+"";
+		fetch(endpoint) 
+			.then(response => response.json())
+			.then(data => {
+			
+				convert5 = "$ " + Math.round((0.75362609 * parseInt(JSON.stringify(data.bpi).substring(14).slice(0, -1)))* 100) / 100;
+				$('#bitcoin5').html(convert5);
+				
+			});
+}
+	function moneyConvert6(){	
+		
+		
+		date6 = $('#date6').val();
+		var endpoint = "https://api.coindesk.com/v1/bpi/historical/close.json?start="+date6+"&end="+date6+"";
+		fetch(endpoint) 
+			.then(response => response.json())
+			.then(data => {
+			
+				convert6 = "$ " + Math.round((0.75362609 * parseInt(JSON.stringify(data.bpi).substring(14).slice(0, -1)))* 100) / 100;
+				$('#bitcoin6').html(convert6);
+				
+			});  
+}
+	function moneyConvert7(){	
+		
+		
+		date7 = $('#date7').val();
+		var endpoint = "https://api.coindesk.com/v1/bpi/historical/close.json?start="+date7+"&end="+date7+"";
+		fetch(endpoint) 
+			.then(response => response.json())
+			.then(data => {
+			
+				convert7 = "$ " + Math.round((0.75362609 * parseInt(JSON.stringify(data.bpi).substring(14).slice(0, -1)))* 100) / 100;
+				$('#bitcoin7').html(convert7);
+				
+			});  
+
+
+
+			
+	}
+	
+	
+	
+	$(document).ready(function() { 
+	
+		moneyConvert();
+		moneyConvert2();
+		moneyConvert3();
+		moneyConvert4();
+		moneyConvert5();
+		moneyConvert6();
+		moneyConvert7();		
+	});
+	
+</script>
+</head>
+<body style="height:100vh; ">
+	<input id="date" type="text" value="2013-09-01"  oninput="moneyConvert();"><p id="bitcoin"></p><br>
+	<input id="date2" type="text" value="2013-09-02" oninput="moneyConvert2();"><p id="bitcoin2"></p><br>
+	<input id="date3" type="text" value="2013-09-03" oninput="moneyConvert3();"><p id="bitcoin3"></p><br>
+	<input id="date4" type="text" value="2013-09-04" oninput="moneyConvert4();"><p id="bitcoin4"></p><br>
+	<input id="date5" type="text" value="2013-09-05" oninput="moneyConvert5();"><p id="bitcoin5"></p><br>
+	<input id="date6" type="text" value="2013-09-06" oninput="moneyConvert6();"><p id="bitcoin6"></p><br>
+	<input id="date7" type="text" value="2013-09-07" oninput="moneyConvert7();"><p id="bitcoin7"></p>
+</body>
+</html>
