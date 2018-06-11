@@ -1,7 +1,8 @@
+<?php
+	$d = '';
+	$d = '?'.date("Y.m.d.h.m.s");
 
-<?php 
-	
-	include 'first.html';
+	include 'first.php';
 	include 'curency.html';
-	include 'end.html';
+	include 'end.php';
 ?>

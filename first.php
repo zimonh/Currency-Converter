@@ -21,7 +21,7 @@
 
 	<link rel="icon" type="image/png" href="http://software.zimonh.at/zh.ico">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link href="first_0.css" rel="stylesheet">
+	<link href="first_0.css?<?php echo $d; ?>" rel="stylesheet">
 
 
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -58,7 +58,7 @@
 						</div>
 					</div>
 				</div>
-				<script src="first.js?2"></script>
+				<script src="first.js?<?php echo $d; ?>"></script>
 
 
 				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 hideatpageload">
