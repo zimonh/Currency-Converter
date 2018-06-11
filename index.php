@@ -1,5 +1,5 @@
 <?php $d = '';
-$d = '?'.date("Y.m.d.h.m.s");
+//$d = '?'.date("Y.m.d.h.m.s");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +29,7 @@ $d = '?'.date("Y.m.d.h.m.s");
 	<script integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script integrity="sha256-KM512VNnjElC30ehFwehXjx1YCHPiQkOPmqnrWtpccM=" crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
-	<link   href="style.css?<?php echo $d; ?>" rel="stylesheet">
+	<link   href="style.css<?php echo $d; ?>" rel="stylesheet">
 </head>
 <body>
 <div class="overlay hidden-sm hidden-xs"></div>
@@ -88,7 +88,7 @@ $d = '?'.date("Y.m.d.h.m.s");
 				<p class="hidden-lg hidden-md hidden-sm" style="color:white;">Click currency to move it to top</p>
 				<div id="psP" class="nubeT"></div>
 
-				<script src="script.js?<?php echo $d; ?>"></script>
+				<script src="script.js<?php echo $d; ?>"></script>
 
 				<script integrity="sha256-Cjux44IGDGmZwm+qw4rtfj1swD9zdqmja4gaflupI8o=" crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
 				<script integrity="sha256-5YmaxAwMjIpMrVlK84Y/+NjCpKnFYa8bWWBbUHSBGfU=" crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
@@ -103,6 +103,6 @@ $d = '?'.date("Y.m.d.h.m.s");
 		<span class="text-muted">&#9400; <a href="http://zimonh.at">ZIMONH</a> Exchange rates from <a href="http://fixer.io/">fixer.io</a></span>
 	</div>
 </footer>
-<script src="http://www.zimonh.at/userTrack/tracker.js"></script>
+<script src="https://www.zimonh.at/userTrack/tracker.js"></script>
 </body>
 </html>

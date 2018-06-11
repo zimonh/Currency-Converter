@@ -1,4 +1,4 @@
-//jshint  esnext:true
+
 const countries	=
 	[{title: 'Euro',
 	search: 'Andorra Austria Belgium Cyprus Estonia Finland France Germany Greece Ireland Italy Kosovo Latvia Luxembourg Malta Monaco Montenegro Netherlands Portugal San Marino Slovakia Slovenia Spain Vatican City',
@@ -172,43 +172,41 @@ countries.map((v)=>{
 	</div>`;});
 
 $('#psP').html(elements);
-
-
 let behindthecomma = 2, date, rates, inputs;
-const fixerio = 'http://data.fixer.io/';
-const access_key = 'access_key=1f47ec7e6beadfec86dfbccdc0f731c7';
 
-function convert(countrycode = 'EUR'){
+const fixerio = '/grabber.php?!=data.fixer.io/',
+	  access_key = 'access_key|1f47ec7e6beadfec86dfbccdc0f731c7';
+
+const convert = (countrycode = 'EUR')=>{
 	//this is the input being filled. countrycode
-	const value = inputs[countrycode].value;
-	//first convert to euros and then update all
-	const euro = value / rates[countrycode];
+	const value = inputs[countrycode].value,
+		  euro  = value / rates[countrycode];
 	//take the euro value and multiply it by the exchange rate
 	for(let fields of inputs){
 
 		const name = fields.name;
 		if(name !== countrycode){
-			const rate = rates[name];
-			const product = euro * rate;
+			const rate = rates[name],
+				  product = euro * rate;
 			inputs[name].value = product.toFixed(behindthecomma);
 		}
 	}
-
-}
+};
 
 
 const exchange_rates = (recal, date = 'latest')=> {
-	const url = fixerio + date + '?base=EUR&'+access_key;
+	const url = fixerio + date + '~base=EUR*' + access_key;
+
+
 	fetch(url)
 	.then(response => response.json())
 	.then(data => {
 		rates = data.rates;
-		if(recal){
-			inputs.EUR.value = 1;
-		}
-			convert();
-
+		if(recal) inputs.EUR.value = 1;
+		convert();
 	});
+
+
 };
 
 $(document).ready(function() {
@@ -262,54 +260,44 @@ $(document).ready(function() {
 	});
 
 
-	$(function () {
-	   var bindDatePicker = function() {
-			$(".date").datetimepicker({
-			format:'YYYY-MM-DD',
-				icons: {
-					time: "fa fa-clock-o",
-					date: "fa fa-calendar",
-					up: "fa fa-arrow-up",
-					down: "fa fa-arrow-down"
-				}
-			}).find('input:first').on("blur",function () {
-				// check if the date is correct. We can accept dd-mm-yyyy and yyyy-mm-dd.
-				// update the format if it's yyyy-mm-dd
-				var date = parseDate($(this).val());
+	const bindDatePicker = ()=>{
+		$(".date").datetimepicker({
+		format:'YYYY-MM-DD',
+			icons: {
+				time: "fa fa-clock-o",
+				date: "fa fa-calendar",
+				up: "fa fa-arrow-up",
+				down: "fa fa-arrow-down"
+			}
+		}).find('input:first').on("blur",function () {
+			// check if the date is correct. We can accept dd-mm-yyyy and yyyy-mm-dd.
+			// update the format if it's yyyy-mm-dd
+			let date = parseDate($(this).val());
 
-				//create date based on momentjs (we have that)
-				if(!isValidDate(date)) date = moment().format('YYYY-MM-DD');
+			//create date based on momentjs (we have that)
+			if(!isValidDate(date)) date = moment().format('YYYY-MM-DD');
 
-				$(this).val(date);
-			});
-		};
+			$(this).val(date);
+		});
+	};
 
-	   const isValidDate = (value, format)=>{
-			format = format || false;
-			// lets parse the date to the best of our knowledge
-			if(format) value = parseDate(value);
+	const isValidDate = (value, format)=>{
+		format = format || false;
+		// lets parse the date to the best of our knowledge
+		if(format) value = parseDate(value);
+		return isNaN(Date.parse(value)) === false;
+	};
 
-			var timestamp = Date.parse(value);
+	const parseDate = value=>{
+		const m = value.match(/^(\d{1,2})(\/|-)?(\d{1,2})(\/|-)?(\d{4})$/);
+		if (m) value = m[5] + '-' + ("00" + m[3]).slice(-2) + '-' + ("00" + m[1]).slice(-2);
+		return value;
+	};
 
-			return isNaN(timestamp) === false;
-	   };
-
-		const parseDate = value=>{
-			var m = value.match(/^(\d{1,2})(\/|-)?(\d{1,2})(\/|-)?(\d{4})$/);
-			if (m) value = m[5] + '-' + ("00" + m[3]).slice(-2) + '-' + ("00" + m[1]).slice(-2);
-
-			return value;
-		};
-
-		bindDatePicker();
-	 });
+	bindDatePicker();
 
 
-
-
-
-
-	/* Triggers */
+	/********************************** Triggers **************************************/
 	$('.inputnronly').on('input', function() {
 		const cur = $(this).attr('name');
 		convert(cur);
@@ -317,13 +305,13 @@ $(document).ready(function() {
 
 	$(".inputnronly").keydown(function(e) {
 		//46 is del    8 backspace    9 is tab       27 is esc     13 enter
-		if (
+		if(
 			$.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
 			(e.keyCode == 65 && e.ctrlKey === !0) ||
 			(e.keyCode == 67 && e.ctrlKey === !0) ||
 			(e.keyCode == 86 && e.ctrlKey === !0) ||
 			(e.keyCode >= 35 && e.keyCode <= 39)
-		) { return }
+		){ return;}
 		//48 is 1  57 is 9
 		if((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)){
 			e.preventDefault();}
@@ -334,15 +322,13 @@ $(document).ready(function() {
 		$(this).addClass("yourClass");
 	});
 	$('#selectdecim').change(function() {
-		console.log('comma value changed');
+		//console.log('comma value changed');
 		behindthecomma = $('#selectdecim').val();
 		convert();
 	});
 	$('#datetimepicker1').on('dp.change', function(e) {
-		console.log('Date changed');
+		//console.log('Date changed');
 		date = $('#datetimepicker1').data('date');
 		exchange_rates(false,date);
 	});
-
-
 });
