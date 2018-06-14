@@ -1,6 +1,6 @@
 const
 	https = true,
-   	access_key = '1f47ec7e6beadfec86dfbccdc0f731c7',
+   	access_key = '1234123imoim09k09k0923f2f09k',
 
 
 	countries	=
@@ -197,10 +197,10 @@ const convert = (countrycode = 'EUR')=>{
 
 
 const exchange_rates = (recal, date = 'latest')=> {
-	if(https === true){	url = '/grabber.php?!='+encodeURIComponent('data.fixer.io/' + date + '?base=EUR&access_key=' + access_key);
+	if(https === true){	url = '/grabber.php?!='+encodeURIComponent('data.fixer.io/' + date + '?base=EUR&access_key=');
 	}else{				url = 'http://data.fixer.io/' + date + '?base=EUR&access_key=' + access_key;}
 
-	fetch(url)
+	fetch(url,{credentials: 'same-origin'})
 	.then(response => response.json())
 	.then(data => {
 		rates = data.rates;

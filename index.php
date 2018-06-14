@@ -1,5 +1,11 @@
-<?php $d = '';
-$d = '?'.date("Y.m.d.h.m.s");
+<?php
+	//developer mode
+	$d = '';
+	$d = '?'.date("Y.m.d.h.m.s");
+
+	//block the grabber script from cross origin
+	session_start(['cookie_lifetime' => 600,]);
+	$_SESSION["origin"] = true;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,9 +56,11 @@ $d = '?'.date("Y.m.d.h.m.s");
 			<div class="col-sm-6 col-xs-12">
 				<div class="form-group" style="margin-top:10px; margin-bottom:0; ">
 					<div class='input-group date hideatpageload maxwidther' id='datetimepicker1'>
-						<input id="datetimepicker2" type='text' class="form-control" />
-						<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+
+						<span class="input-group-addon">
+						<span class="glyphicon glyphicon-calendar"></span>
 						</span>
+						<input id="datetimepicker2" type='text' class="form-control" />
 					</div>
 				</div>
 			</div>
@@ -88,7 +96,7 @@ $d = '?'.date("Y.m.d.h.m.s");
 				<p class="hidden-lg hidden-md hidden-sm" style="color:white;">Click currency to move it to top</p>
 				<div id="psP" class="nubeT"></div>
 
-				<script src="script.js<?php echo $d; ?>"></script>
+				<script src="script.js<?php echo $d;?>"></script>
 
 				<script integrity="sha256-Cjux44IGDGmZwm+qw4rtfj1swD9zdqmja4gaflupI8o=" crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
 				<script integrity="sha256-5YmaxAwMjIpMrVlK84Y/+NjCpKnFYa8bWWBbUHSBGfU=" crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
