@@ -1,5 +1,5 @@
 <?php $d = '';
-//$d = '?'.date("Y.m.d.h.m.s");
+$d = '?'.date("Y.m.d.h.m.s");
 ?>
 <!DOCTYPE html>
 <html lang="en">

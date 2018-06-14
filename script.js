@@ -1,3 +1,6 @@
+const https = false,
+   access_key = '1f47ec7e6beadfec86dfbccdc0f731c7';
+
 
 const countries	=
 	[{title: 'Euro',
@@ -174,8 +177,7 @@ countries.map((v)=>{
 $('#psP').html(elements);
 let behindthecomma = 2, date, rates, inputs;
 
-const fixerio = '/grabber.php?!=data.fixer.io/',
-	  access_key = 'access_key|1f47ec7e6beadfec86dfbccdc0f731c7';
+
 
 const convert = (countrycode = 'EUR')=>{
 	//this is the input being filled. countrycode
@@ -195,7 +197,16 @@ const convert = (countrycode = 'EUR')=>{
 
 
 const exchange_rates = (recal, date = 'latest')=> {
-	const url = fixerio + date + '~base=EUR*' + access_key;
+	let url = '';
+
+	if(https === true){
+		url = '/grabber.php?!='+encodeURIComponent('data.fixer.io/' + date + '?base=EUR&access_key=' + access_key);
+
+	}else{
+		url = 'http://data.fixer.io/' + date + '?base=EUR&access_key=' + access_key;
+
+	}
+
 
 
 	fetch(url)
