@@ -1,8 +1,9 @@
-const https = true,
-   access_key = '1f47ec7e6beadfec86dfbccdc0f731c7';
+const
+	https = true,
+   	access_key = '1f47ec7e6beadfec86dfbccdc0f731c7',
 
 
-const countries	=
+	countries	=
 	[{title: 'Euro',
 	search: 'Andorra Austria Belgium Cyprus Estonia Finland France Germany Greece Ireland Italy Kosovo Latvia Luxembourg Malta Monaco Montenegro Netherlands Portugal San Marino Slovakia Slovenia Spain Vatican City',
 	button: '€ EUR',
@@ -175,9 +176,8 @@ countries.map((v)=>{
 	</div>`;});
 
 $('#psP').html(elements);
-let behindthecomma = 2, date, rates, inputs;
 
-
+let behindthecomma = 2, date, rates, inputs, url;
 
 const convert = (countrycode = 'EUR')=>{
 	//this is the input being filled. countrycode
@@ -197,17 +197,8 @@ const convert = (countrycode = 'EUR')=>{
 
 
 const exchange_rates = (recal, date = 'latest')=> {
-	let url = '';
-
-	if(https === true){
-		url = '/grabber.php?!='+encodeURIComponent('data.fixer.io/' + date + '?base=EUR&access_key=' + access_key);
-
-	}else{
-		url = 'http://data.fixer.io/' + date + '?base=EUR&access_key=' + access_key;
-
-	}
-
-
+	if(https === true){	url = '/grabber.php?!='+encodeURIComponent('data.fixer.io/' + date + '?base=EUR&access_key=' + access_key);
+	}else{				url = 'http://data.fixer.io/' + date + '?base=EUR&access_key=' + access_key;}
 
 	fetch(url)
 	.then(response => response.json())
