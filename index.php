@@ -47,7 +47,7 @@
 				</div>
 			</div>
 
-			<div class="col-lg-6 col-xs-12">
+			<div class="col-sm-6 col-xs-12">
 				<div class="form-group" style="margin-top:10px; margin-bottom:0; ">
 					<div class='input-group date hideatpageload maxwidther' id='datetimepicker1'>
 						<input id="datetimepicker2" type='text' class="form-control" />
@@ -57,7 +57,7 @@
 				</div>
 			</div>
 
-			<div class="col-lg-6 col-xs-12 hideatpageload">
+			<div class="col-sm-6 col-xs-12 hideatpageload">
 				<div class="input-group maxwidther" style="margin-top:10px; ">
 				  <span class="input-group-addon" id="basic-addon1"><span class="hidden-xs">Places after decimal</span><span class="hidden-lg hidden-md hidden-sm">Decimal Places</span></span>
 				  <select class="form-control" id="selectdecim">
