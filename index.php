@@ -95,7 +95,8 @@
 
 				<p class="hidden-lg hidden-md hidden-sm" style="color:white;">Click currency to move it to top</p>
 				<div id="psP" class="nubeT"></div>
-
+					
+				<script src="currencies.js<?php echo $d;?>"></script>
 				<script src="script.js<?php echo $d;?>"></script>
 
 				<script integrity="sha256-Cjux44IGDGmZwm+qw4rtfj1swD9zdqmja4gaflupI8o=" crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
