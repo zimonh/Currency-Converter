@@ -3,7 +3,7 @@ const
    	access_key = '1234123imoim09k09k0923f2f09k',
 
 
-	countries	=
+	countries =
 	[{title: 'Euro',
 	search: 'Andorra Austria Belgium Cyprus Estonia Finland France Germany Greece Ireland Italy Kosovo Latvia Luxembourg Malta Monaco Montenegro Netherlands Portugal San Marino Slovakia Slovenia Spain Vatican City',
 	button: '€ EUR',
@@ -166,7 +166,7 @@ const
 
 let elements = '';
 
-countries.map((v)=>{
+countries.map(v=>{
 	elements += `
 	<div class="sortable col-lg-4 col-md-6 col-xs-12">
 		<div class="input-group">
@@ -235,7 +235,7 @@ $(document).ready(function() {
 	$("#scrollgo").click(function(){$('html, body').animate({scrollTop: $('#searchgo').offset().top-30},1000);});
 
 
-	$('#curencyfinder').keyup(function() {
+	$('#curencyfinder').keyup(function(){
 
 		$('span.currencybutton').removeClass( "myClass" );
 		$('span.currencybutton').removeAttr('id', 'searchgo');
@@ -263,13 +263,14 @@ $(document).ready(function() {
 
 
 	const bindDatePicker = ()=>{
+		const f = "fa fa-";
 		$(".date").datetimepicker({
 		format:'YYYY-MM-DD',
 			icons: {
-				time: "fa fa-clock-o",
-				date: "fa fa-calendar",
-				up: "fa fa-arrow-up",
-				down: "fa fa-arrow-down"
+				time: f+"clock-o",
+				date: f+"calendar",
+				up:   f+"arrow-up",
+				down: f+"arrow-down"
 			}
 		}).find('input:first').on("blur",function () {
 			// check if the date is correct. We can accept dd-mm-yyyy and yyyy-mm-dd.
