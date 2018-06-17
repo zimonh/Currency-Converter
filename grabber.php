@@ -5,10 +5,10 @@ session_start();
 if($_SESSION["origin"]){
 
 	$s = parse_ini_file('/home/zimonh53/secure_connect/fixer_api.ini');
-		$access_key =$s['access_key'];
+	$access_key =$s['access_key'];
 
 	$href = $_GET["!"].$access_key;
-	function get_data($href) {
+	function get_data($href){
 		$ch = curl_init();
 		$timeout = 5;
 		curl_setopt($ch, CURLOPT_URL, $href);
