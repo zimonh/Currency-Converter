@@ -1,5 +1,0 @@
-[14-Jun-2018 13:49:18 CST6CDT] PHP Parse error:  syntax error, unexpected ',' in /home/zimonh53/public_html/convert/grabber.php on line 5
-[14-Jun-2018 13:49:32 CST6CDT] PHP Parse error:  syntax error, unexpected ',' in /home/zimonh53/public_html/convert/grabber.php on line 5
-[14-Jun-2018 13:49:54 CST6CDT] PHP Parse error:  syntax error, unexpected '.', expecting ')' in /home/zimonh53/public_html/convert/grabber.php on line 8
-[14-Jun-2018 13:54:47 CST6CDT] PHP Parse error:  syntax error, unexpected '';' (T_ENCAPSED_AND_WHITESPACE), expecting ',' or ';' in /home/zimonh53/public_html/convert/grabber.php on line 29
-[14-Jun-2018 14:29:56 CST6CDT] PHP Parse error:  syntax error, unexpected '$_SESSION' (T_VARIABLE), expecting ',' or ';' in /home/zimonh53/public_html/convert/grabber.php on line 2
