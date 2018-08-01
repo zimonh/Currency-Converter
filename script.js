@@ -1,3 +1,5 @@
+/* by: ZIMONH src: https://github.com/zimonh/randArray.js
+License: https://creativecommons.org/licenses/by-nc-sa/4.0/ */
 const	https = true,
    	access_key = '1234123imoim09k09k0923f2f09k';
 
