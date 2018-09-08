@@ -1,7 +1,7 @@
 <?php
 	//developer mode
 	$d = '';
-	$d = '?'.date("Y.m.d.h.m.s");
+	//$d = '?'.date("Y.m.d.h.m.s");
 
 	//block the grabber script from cross origin
 	session_start(['cookie_lifetime' => 600,]);
@@ -28,7 +28,9 @@
 	<meta name="viewport" 				content="width = device-width, initial-scale = 1">
 
 
-	<link rel="icon" type="image/png" href="https://zimonh.at/zh/img/zh.ico">
+
+	<link rel="icon" href="https://res.cloudinary.com/zimonh/image/upload/zh/img/zh.ico" type="image/png">
+
 
 	<link   integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
 	<script integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -95,7 +97,7 @@
 
 				<p class="hidden-lg hidden-md hidden-sm" style="color:white;">Click currency to move it to top</p>
 				<div id="psP" class="nubeT"></div>
-					
+
 				<script src="currencies.js<?php echo $d;?>"></script>
 				<script src="script.js<?php echo $d;?>"></script>
 
